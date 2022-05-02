@@ -21,7 +21,7 @@ class BinarySearchTree {
   }
 
   root() {
-    return r;
+    return this.r;
   }
 
   add(data) {
