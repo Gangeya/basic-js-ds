@@ -9,7 +9,7 @@ const { NotImplementedError } = require("../extensions/index.js");
 
 class Node {
   constructor(value) {
-    this.value = value;
+    this.data = value;
     this.left = null;
     this.right = null;
   }
@@ -32,11 +32,11 @@ class BinarySearchTree {
         return new Node(data);
       }
 
-      if (node.value === data) {
+      if (node.data === data) {
         return node;
       }
 
-      if (data < node.value) {
+      if (data < node.data) {
         node.left = addWithin(node.left, data);
       } else {
         node.right = addWithin(node.right, data);
@@ -54,11 +54,11 @@ class BinarySearchTree {
         return false;
       }
 
-      if (node.value === data) {
+      if (node.data === data) {
         return true;
       }
 
-      return data < node.value
+      return data < node.data
         ? searchWithin(node.left, data)
         : searchWithin(node.right, data);
     }
@@ -72,11 +72,11 @@ class BinarySearchTree {
         return null;
       }
 
-      if (node.value === data) {
+      if (node.data === data) {
         return node;
       }
 
-      return data < node.value
+      return data < node.data
         ? searchWithin(node.left, data)
         : searchWithin(node.right, data);
     }
@@ -90,10 +90,10 @@ class BinarySearchTree {
         return null;
       }
 
-      if (data < node.value) {
+      if (data < node.data) {
         node.left = removeNode(node.left, data);
         return node;
-      } else if (node.value < data) {
+      } else if (node.data < data) {
         node.right = removeNode(node.right, data);
         return node;
       } else {
@@ -112,8 +112,8 @@ class BinarySearchTree {
           minFromRight = minFromRight.left;
         }
 
-        node.value = minFromRight.value;
-        node.right = removeNode(node.right, minFromRight.value);
+        node.data = minFromRight.data;
+        node.right = removeNode(node.right, minFromRight.data);
 
         return node;
       }
@@ -130,7 +130,7 @@ class BinarySearchTree {
       node = node.left;
     }
 
-    return node.value;
+    return node.data;
   }
 
   max() {
@@ -143,7 +143,7 @@ class BinarySearchTree {
       node = node.right;
     }
 
-    return node.value;
+    return node.data;
   }
 }
 
