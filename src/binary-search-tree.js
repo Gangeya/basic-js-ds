@@ -1,4 +1,4 @@
-const { NotImplementedError } = require("../extensions/index.js");
+const { NotImplementedError } = require('../extensions/index.js');
 
 // const { Node } = require('../extensions/list-tree.js');
 
@@ -102,9 +102,11 @@ class BinarySearchTree {
         }
         if (!node.left) {
           node = node.right;
+          return node;
         }
         if (!node.right) {
           node = node.left;
+          return node;
         }
 
         let minFromRight = node.right;
